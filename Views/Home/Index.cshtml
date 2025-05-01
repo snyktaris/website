@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<!-- File Upload Section -->
+<h2>Upload a File to Azure Blob Storage</h2>
+
+<!-- File Upload Form -->
+<form method="post" enctype="multipart/form-data" action="/Image/Upload">
+    <div>
+        <label for="file">Choose a file to upload:</label>
+        <input type="file" name="file" id="file" />
+    </div>
+    <div>
+        <button type="submit">Upload</button>
+    </div>
+</form>
+
+<!-- Display uploaded file URL if available -->
+@if (ViewBag.FileUrl != null)
+{
+    <div>
+        <strong>File uploaded successfully!</strong>
+        <p>Access your file at: <a href="@ViewBag.FileUrl" target="_blank">@ViewBag.FileUrl</a></p>
+    </div>
+}
